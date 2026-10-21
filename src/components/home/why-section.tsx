@@ -10,17 +10,15 @@ export function WhySection() {
   return (
     <section id="capabilities" aria-labelledby="why-title" className="frame pb-24 md:pb-36">
       <SectionTitle
-        layout="split"
+        
         chip="Why work with me"
         id="why-title"
         lines={[
           <>Focused on</>,
           <>
-            design <Mute>that</Mute>
+            design <Mute>that actually ships</Mute>
           </>,
-          <>
-            <Mute>actually ships</Mute>
-          </>,
+          
         ]}
       />
 

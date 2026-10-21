@@ -9,7 +9,7 @@ export function ProcessSection() {
   return (
     <section id="process" aria-labelledby="process-title" className="frame pb-24 md:pb-36">
       <SectionTitle
-        layout="center"
+        
         chip="My design process"
         id="process-title"
         lines={[

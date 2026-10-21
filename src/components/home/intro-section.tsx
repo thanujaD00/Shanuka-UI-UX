@@ -8,9 +8,9 @@ import { Reveal } from "@/components/motion/reveal";
 /** Every number here is verifiable from Behance / Dribbble. */
 const stats = [
   {
-    value: `${workProjects.length}`,
+    value: "30+",
     label: "Projects published",
-    body: "Websites, mobile apps and dashboards, all on Behance.",
+    body: "Websites, mobile apps and dashboards, all on Behance and other platforms.",
   },
   {
     value: "2023",
@@ -83,9 +83,9 @@ export function IntroSection() {
         <div className="col-span-full md:col-span-4 lg:col-span-5 lg:col-start-8">
           <Reveal>
             <p className="text-[15px] font-medium uppercase leading-[1.6] text-ink-2">
-              Hi, I&rsquo;m {profile.firstName} — a UI/UX engineer from {profile.location}. My first portfolio
-              introduced me as a developer; today I design websites, mobile apps and dashboards with the build in
-              mind.
+              Hi, I&rsquo;m {profile.firstName} — a passionate UI/UX Designer dedicated to creating clean, intuitive, and user-friendly digital experiences. 
+              With a strong focus on usability, visual design, and functionality, 
+              I transform ideas into meaningful digital products that connect with users.
             </p>
             <p className="mt-5 text-[16px] leading-relaxed text-ink-2">
               Knowing how an interface gets built changes how I design it. I think in components, states and

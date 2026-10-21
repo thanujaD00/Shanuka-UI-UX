@@ -6,15 +6,25 @@ import type { EducationItem, ExperienceItem } from "./types";
  * accessible — add them here when ready.
  */
 export const experience: ExperienceItem[] = [
+  
   {
     period: "2025 — Present",
-    role: "Graphic Designer & UI Designer",
+    role: "Creative Designer",
     organisation: "Point Five Global Events",
     location: "United Arab Emirates",
     // DUMMY description — replace.
     description:
       "Designing event websites, registration flows and digital collateral, keeping screen and print work consistent with each event's identity.",
     source: "Behance · Dribbble",
+  },
+  {
+    period: "Part-time",
+    role: "Lead Designer",
+    organisation: "TILLHIVE",
+    location: "Sri Lanka",
+    description:
+      "Leading the design process for digital experiences, shaping concepts into clear, user-friendly interfaces and collaborating with the team to deliver consistent, polished designs.",
+    source: "User-provided",
   },
   {
     period: "2024 — 2025",

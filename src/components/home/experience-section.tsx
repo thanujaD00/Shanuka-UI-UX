@@ -35,7 +35,7 @@ export function ExperienceSection() {
   return (
     <section id="experience" aria-labelledby="experience-title" className="frame pb-24 md:pb-36">
       <SectionTitle
-        layout="split"
+        
         chip="Experience & education"
         id="experience-title"
         lines={[

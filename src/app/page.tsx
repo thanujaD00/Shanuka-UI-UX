@@ -8,6 +8,7 @@ import { Breakdown } from "@/components/home/breakdown";
 import { WhySection } from "@/components/home/why-section";
 import { CoverMarquee } from "@/components/home/cover-marquee";
 import { ExperienceSection } from "@/components/home/experience-section";
+import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { PlaygroundSection } from "@/components/home/playground-section";
 import { ContactSection } from "@/components/home/contact-section";
 import { SectionTitle, Mute } from "@/components/section-title";
@@ -57,6 +58,7 @@ export default function Home() {
       <WhySection />
       <CoverMarquee />
       <ExperienceSection />
+      <TestimonialsSection />
       <PlaygroundSection />
       <ContactSection />
     </>

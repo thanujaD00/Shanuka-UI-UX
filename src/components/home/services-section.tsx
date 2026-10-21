@@ -10,7 +10,7 @@ export function ServicesSection() {
   return (
     <section id="services" aria-labelledby="services-title" className="frame pb-24 md:pb-36">
       <SectionTitle
-        layout="split"
+        /*layout="split"*/
         chip="What I do"
         id="services-title"
         lines={[
