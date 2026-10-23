@@ -27,7 +27,9 @@ const stats = [
 export function IntroSection() {
   const small = getProject("travel-guide-app")!;
   const large = getProject("budget-tracker-app")!;
-  const portrait = profile.portrait;
+  const portrait = profile.portrait
+    ? { ...profile.portrait, src: "/profilepic.jpg", alt: `Portrait of ${profile.name}` }
+    : undefined;
 
   return (
     <section id="about" aria-labelledby="about-title" className="frame py-24 md:py-36">
