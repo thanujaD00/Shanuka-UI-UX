@@ -33,7 +33,6 @@ type MaskLinesProps = {
   stagger?: number;
   /** Animate immediately on mount instead of when scrolled into view. */
   immediate?: boolean;
-  spec?: string;
   id?: string;
 };
 
@@ -46,13 +45,12 @@ export function MaskLines({
   delay = 0,
   stagger = 0.08,
   immediate = false,
-  spec,
   id,
 }: MaskLinesProps) {
   // Above-the-fold headings animate with CSS so they paint before hydration.
   if (immediate) {
     return (
-      <Tag className={className} data-spec={spec} id={id}>
+      <Tag className={className} id={id}>
         {lines.map((line, i) => (
           <span key={i} className={`block overflow-hidden pb-[0.12em] -mb-[0.12em] ${lineClassName ?? ""}`}>
             <span className="anim-rise block" style={{ animationDelay: `${delay + i * stagger}s` }}>
@@ -71,7 +69,6 @@ export function MaskLines({
   return (
     <MotionTag
       className={className}
-      data-spec={spec}
       id={id}
       initial="hidden"
       whileInView="show"

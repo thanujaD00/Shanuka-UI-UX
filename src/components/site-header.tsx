@@ -4,8 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Grid3x3, X } from "lucide-react";
-import { useInspect } from "./providers";
+import { ArrowUpRight, X } from "lucide-react";
 import { LocalTime } from "./local-time";
 import { profile, socials } from "@/content/profile";
 import { workProjects } from "@/content/projects";
@@ -25,7 +24,6 @@ export function SiteHeader() {
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const { inspecting, toggle } = useInspect();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
@@ -108,22 +106,6 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-2 sm:gap-4">
             <LocalTime className={`t-label hidden xl:inline ${onHero ? "text-white/75" : "text-ink-2"}`} />
-            <button
-              type="button"
-              onClick={toggle}
-              aria-pressed={inspecting}
-              title="Reveal the layout grid and type specs"
-              className={`t-label flex h-9 items-center gap-2 border px-3 transition-colors ${
-                inspecting
-                  ? "border-select bg-select text-white"
-                  : onHero
-                    ? "border-white/30 text-white hover:border-white"
-                    : "border-line text-ink hover:border-ink"
-              }`}
-            >
-              <Grid3x3 aria-hidden className="size-3.5" strokeWidth={1.75} />
-              <span>Inspect</span>
-            </button>
             <button
               ref={menuButtonRef}
               type="button"

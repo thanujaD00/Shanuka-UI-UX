@@ -230,44 +230,6 @@
   }
 }
 
-/* =====================================================================
-   Inspect mode — toggled from the nav. Reveals the grid and type specs,
-   like switching a design file into developer handoff.
-   ===================================================================== */
-.inspect-grid {
-  display: none;
-}
-
-html[data-inspect="on"] .inspect-grid {
-  display: block;
-}
-
-html[data-inspect="on"] [data-spec] {
-  position: relative;
-  outline: 1px dashed rgb(43 80 255 / 0.55);
-  outline-offset: 2px;
-}
-
-html[data-inspect="on"] [data-spec]::before {
-  content: attr(data-spec);
-  position: absolute;
-  left: 0;
-  top: -1.6rem;
-  z-index: 5;
-  padding: 2px 6px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  white-space: nowrap;
-  color: #fff;
-  background: var(--color-select);
-  pointer-events: none;
-}
-
 /* Hero entrance — CSS keyframes so it runs from first paint, before hydration */
 @keyframes rise {
   from { transform: translateY(105%); }
@@ -294,6 +256,58 @@ html[data-inspect="on"] [data-spec]::before {
 .anim-fade { animation: fade 0.8s ease both; }
 .anim-fade-up { animation: fade-up 0.9s var(--ease-out-expo) both; }
 .anim-select { animation: select-in 0.7s var(--ease-out-expo) both; }
+
+@keyframes loader-dash-array {
+  0% { stroke-dasharray: 0 1 359 0; }
+  50% { stroke-dasharray: 0 359 1 0; }
+  100% { stroke-dasharray: 359 1 0 0; }
+}
+@keyframes loader-dash-offset {
+  from { stroke-dashoffset: 365; }
+  to { stroke-dashoffset: 5; }
+}
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: var(--color-ink);
+  transition:
+    opacity 0.45s var(--ease-out-expo),
+    visibility 0s linear 0.45s;
+}
+.page-loader--complete {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.page-loader__content {
+  display: flex;
+  align-items: center;
+}
+.page-loader__wordmark {
+  width: min(11rem, 55vw);
+  height: auto;
+  overflow: visible;
+  color: var(--color-signal);
+}
+.page-loader__letter {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation:
+    loader-dash-array 2s ease-in-out infinite,
+    loader-dash-offset 2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-loader {
+    display: none;
+  }
+}
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }

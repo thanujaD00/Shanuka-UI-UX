@@ -102,7 +102,6 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
           as="h1"
           immediate
           className="mt-10 text-[clamp(2.6rem,8.5vw,9rem)] font-bold uppercase leading-[0.88] tracking-[-0.06em] md:mt-16"
-          spec="Display / clamp(2.8rem, 9.5vw, 10rem)"
           lines={[project.title]}
         />
 

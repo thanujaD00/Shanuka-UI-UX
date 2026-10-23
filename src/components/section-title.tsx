@@ -15,7 +15,7 @@ type SectionTitleProps = {
 export function SectionTitle({ chip, lines, id, layout = "stacked", aside, inverted }: SectionTitleProps) {
   const chipEl = <Chip tone={inverted ? "dark" : "light"}>{chip}</Chip>;
   const title = (
-    <MaskLines id={id} lines={lines} className="t-head" spec="Head / clamp(2.4rem, 6.2vw, 5.75rem) / 700 / uppercase" />
+    <MaskLines id={id} lines={lines} className="t-head" />
   );
 
   if (layout === "center") {

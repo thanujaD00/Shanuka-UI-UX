@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { Providers } from "@/components/providers";
+import { PageLoader } from "@/components/page-loader";
 import { SiteHeader } from "@/components/site-header";
-import { InspectGrid } from "@/components/inspect-grid";
 import { profile, siteUrl, socials } from "@/content/profile";
 import "./globals.css";
 
@@ -77,7 +77,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="en"
-      data-inspect="off"
       className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}
       suppressHydrationWarning
     >
@@ -86,6 +85,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
+        <PageLoader />
         <a
           href="#main"
           className="sr-only-focusable t-label fixed left-4 top-4 z-[100] bg-ink px-4 py-3 text-paper"
@@ -97,7 +97,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <main id="main" tabIndex={-1} className="outline-none">
             {children}
           </main>
-          <InspectGrid />
         </Providers>
       </body>
     </html>

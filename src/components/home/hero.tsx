@@ -65,7 +65,6 @@ function FanCard({ project, className, delay, front }: { project: Project; class
 
 export function Hero() {
   const contact = primaryContact();
-  const rover = getProject("rover-bike-import")!;
   const fan = fanSlugs.map((s) => getProject(s)!);
   const portrait = profile.portrait && !profile.portrait.src.endsWith(".svg") ? profile.portrait : undefined;
 
@@ -117,25 +116,6 @@ export function Hero() {
             ))
           )}
         </div>
-
-        {/* Floating project card */}
-        <Link
-          href={`/work/${rover.slug}`}
-          className="anim-fade-up group absolute right-[var(--margin)] top-[30%] z-20 hidden w-[clamp(170px,15vw,230px)] rotate-[4deg] bg-card p-2 text-ink shadow-[0_24px_50px_-20px_rgb(60_10_0/0.6)] transition-transform duration-500 hover:rotate-0 md:block"
-          style={{ animationDelay: "0.7s" }}
-        >
-          <span className="relative block aspect-square overflow-hidden" style={{ backgroundColor: rover.accent }}>
-            <Image src={rover.cover.src} alt="" fill sizes="230px" className="object-cover object-[40%_50%]" />
-          </span>
-          <span className="mt-2 flex items-center justify-between text-[12px]">
-            <span className="flex items-center gap-1 font-medium uppercase">
-              <Asterisk aria-hidden className="size-3 text-signal" />
-              Rover
-            </span>
-            <span className="text-ink-2">/Web Design</span>
-          </span>
-          <span className="sr-only">ROVER Bike Import case study</span>
-        </Link>
 
         {/* Name + Let's talk */}
         <div className="relative z-20 mt-10 flex flex-col gap-6 lg:absolute lg:inset-x-[var(--margin)] lg:bottom-[7%] lg:mt-0 lg:flex-row lg:items-end lg:justify-between">
