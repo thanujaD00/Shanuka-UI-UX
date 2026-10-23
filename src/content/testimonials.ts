@@ -20,4 +20,20 @@ export const testimonials: Testimonial[] = [
     role: "Mobile app design client",
     organisation: "Brazil",
   },
+  // DUMMY testimonial — added at the owner's request on 23 Oct 2026. Replace with a real quote.
+  {
+    quote:
+      "Shanuka turned a messy set of requirements into a clear, usable dashboard. The handoff files were organised, the components were consistent, and our developers could build from them without guesswork.",
+    name: "Placeholder Client",
+    role: "Dashboard design client",
+    organisation: "Placeholder",
+  },
+  // DUMMY testimonial — added at the owner's request on 23 Oct 2026. Replace with a real quote.
+  {
+    quote:
+      "Working with Shanuka felt like having a designer who also thinks like an engineer. He asked the right questions early, and the final web design looked exactly the same once it was live.",
+    name: "Placeholder Collaborator",
+    role: "Web design collaborator",
+    organisation: "Placeholder",
+  },
 ];

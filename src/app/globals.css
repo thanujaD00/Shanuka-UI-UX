@@ -24,7 +24,7 @@
   --color-hot-deep: #b8300d;
   --color-select: #2b50ff;
 
-  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -323,6 +323,70 @@
 .marquee-track.reverse { animation-direction: reverse; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 
+/* Live lines — a fixed layer behind all content (the hero paints its gradient
+   at z -10 so the lines show over it). Positions and directions are rolled in live-lines.tsx. */
+.live-lines {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.live-line {
+  position: absolute;
+}
+.live-line[data-axis="y"] {
+  inset-block: 0;
+  width: 1px;
+}
+.live-line[data-axis="x"] {
+  inset-inline: 0;
+  height: 1px;
+}
+.live-pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  will-change: transform, opacity;
+  --pulse-tail: transparent, rgb(255 77 26 / 0.6) 75%, var(--color-signal);
+}
+[data-axis="y"] > .live-pulse {
+  width: 1px;
+  height: 26vh;
+  background: linear-gradient(to bottom, var(--pulse-tail));
+}
+[data-axis="y"][data-dir="rev"] > .live-pulse {
+  background: linear-gradient(to top, var(--pulse-tail));
+}
+[data-axis="x"] > .live-pulse {
+  width: 26vw;
+  height: 1px;
+  background: linear-gradient(to right, var(--pulse-tail));
+}
+[data-axis="x"][data-dir="rev"] > .live-pulse {
+  background: linear-gradient(to left, var(--pulse-tail));
+}
+/* Leading head: white core so it reads on the orange hero, orange glow for the paper */
+.live-pulse::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgb(255 77 26 / 0.9), 0 0 12px 3px rgb(255 77 26 / 0.5);
+}
+[data-axis="y"] > .live-pulse::after { left: -2px; bottom: -2px; }
+[data-axis="y"][data-dir="rev"] > .live-pulse::after { top: -2px; bottom: auto; }
+[data-axis="x"] > .live-pulse::after { top: -2px; right: -2px; }
+[data-axis="x"][data-dir="rev"] > .live-pulse::after { left: -2px; right: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .live-lines {
+    display: none;
+  }
+}
+
 /* Crosshair "+" marker used on the hero grid */
 .crosshair {
   position: absolute;
@@ -332,13 +396,6 @@
   background:
     linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat,
     linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat;
-}
-
-/* Skip rendering work for off-screen home sections until they approach the viewport */
-main > section:not(#top),
-main > footer {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 900px;
 }
 
 /* Muted headline tone on dark surfaces */

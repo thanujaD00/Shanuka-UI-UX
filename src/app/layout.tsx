@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist_Mono, Instrument_Serif, Open_Sans } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { PageLoader } from "@/components/page-loader";
+import { LiveLines } from "@/components/live-lines";
 import { SiteHeader } from "@/components/site-header";
 import { profile, siteUrl, socials } from "@/content/profile";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
+const openSans = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans", display: "swap" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
 const instrument = Instrument_Serif({
   subsets: ["latin"],
@@ -77,7 +78,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}
+      className={`${openSans.variable} ${geistMono.variable} ${instrument.variable}`}
       suppressHydrationWarning
     >
       <body>
@@ -86,6 +87,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
         <PageLoader />
+        <LiveLines />
         <a
           href="#main"
           className="sr-only-focusable t-label fixed left-4 top-4 z-[100] bg-ink px-4 py-3 text-paper"

@@ -73,11 +73,16 @@ export function Hero() {
       id="top"
       aria-labelledby="hero-name"
       className="on-ink relative overflow-hidden text-white"
-      style={{
-        background:
-          "radial-gradient(110% 90% at 78% 18%, #ff7a36 0%, #f2541f 32%, #d83f14 62%, #a92a0b 100%)",
-      }}
     >
+      {/* Gradient sits below the site-wide live lines (z -1) so they run through the hero */}
+      <span
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(110% 90% at 78% 18%, #ff7a36 0%, #f2541f 32%, #d83f14 62%, #a92a0b 100%)",
+        }}
+      />
       <HeroGrid />
 
       {/* Ghost name */}
